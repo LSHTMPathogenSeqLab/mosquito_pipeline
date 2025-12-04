@@ -1,4 +1,5 @@
 # FILTERING OF COMBINED GENOTYPED VCF
+
 # Below are a set of suggested hard and soft filters to filter your genomics database so that only high quality variants remain.
 # I'd advise that you do this step by step and view your vcf as you go with 'zless' or 'less' and inspect your database
 # The following uses the examples of my VCF database 2019_merged_melas.vcf.gz
