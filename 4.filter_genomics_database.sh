@@ -18,7 +18,7 @@ bcftools view -M2 -m2 -v snps 2019_merged_melas.vcf.gz -Oz -o bi_snps_2019_merge
 # tabix index the compressed VCF file, creates .vcf.gz.tbi
 tabix -p vcf bi_snps_2019_merged_melas.vcf.gz
 
-### Note that to retain multiallelic SNPs and split these into biallelic sites, you need to decompose:
+### Note that to retain multiallelic SNPs and split these into biallelic sites, you need to decompose like so:
 
 bcftools norm -m -any input.vcf.gz -Oz -o output.vcf.gz
 
