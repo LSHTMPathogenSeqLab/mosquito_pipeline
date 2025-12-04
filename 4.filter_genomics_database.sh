@@ -9,12 +9,7 @@
     # https://evomics.org/learning/population-and-speciation-genomics/2020-population-and-speciation-genomics/first-steps-in-genomic-data-analysis/#ex3.4
 
 
-########### FILTER 1: remove INDELS (insertions and deletions) with bcftools to keep just SNPs
-# here -M2 indicates that bcftools should split multi-allelic sites into multiple biallelic sites, 
-# keeping this information
-# -m2 is used in conjunction with -M2 to apply the minor-allele-based decomposition. 
-# This means that bcftools will decompose multi-allelic sites using the minor allele as the reference allele in the biallelic split.
-# here -v tells bcftools to only view SNPS, so indels are excluded
+########### FILTER 1: remove INDELS (insertions and deletions) with bcftools to keep just biallelic SNPs
 
 bcftools query -l 2019_merged_melas.vcf.gz
 
@@ -22,6 +17,10 @@ bcftools view -M2 -m2 -v snps 2019_merged_melas.vcf.gz -Oz -o bi_snps_2019_merge
 
 # tabix index the compressed VCF file, creates .vcf.gz.tbi
 tabix -p vcf bi_snps_2019_merged_melas.vcf.gz
+
+### Note that to retain biallelic SNPs and split these into multiallelic sites, you need to decompose:
+
+bcftools norm -m -any input.vcf.gz -Oz -o output.vcf.gz
 
 # filter out the contigs from the VCF file to keep just the chromosomes, note that to produce a properly bgzipped vcf file you need the -Oz flag
 # replace the below chromosomes with the chromosome names for the species you are analysing
