@@ -1,6 +1,5 @@
 
-## Analysis done here:
-## /mnt/storage11/sophie/bijagos_mosq_wgs/2019_melas_fq2vcf_gambiae_aligned/structural_variants
+## Identifying Structural Variants Using DELLY
 
 ## Using delly call ALL
 
@@ -47,13 +46,13 @@ tabix -p vcf merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz
 
 # Query number of variants
 bcftools view merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz | grep -v "^#" | wc -l
-# 113121 structural variants in total across entire genome for filtered samples and missingness
+# 74043 structural variants in total across entire genome for filtered samples and missingness
 
 # Filter the VCF based on genes of interest
 bcftools view -R genes_of_interest_+-1kb.bed merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz -Oz -o genes_merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz
 tabix -p vcf genes_merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz
 bcftools view genes_merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz | grep -v "^#" | wc -l
-# 215 variants in genes of interest
+# 129 variants in genes of interest
 
 # Extract sample names
 bcftools view -h genes_merged_genotyped_structural_variants_sample_filt_miss20.vcf.gz | grep '^#CHROM' | cut -f10- > filtered_SV_vcf_sample_names.txt

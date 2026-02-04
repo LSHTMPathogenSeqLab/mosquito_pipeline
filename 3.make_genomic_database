@@ -21,7 +21,7 @@ merge_vcfs.py import --sample-file database_samples.txt --ref [insert your refer
 
 merge_vcfs.py genotype --ref [insert your reference genome file] --prefix [database name as above] --threads 10 > database_genotyping_log.txt 2>&1
 
-# eg #
+# example: #
 
 /mnt/storage11/sophie/fastq2matrix/scripts/merge_vcfs.py genotype --ref /mnt/storage11/sophie/reference_genomes/A_gam_P4_ensembl/Anopheles_gambiae.AgamP4.dna.toplevel.fa --prefix ghana_gambiae --threads 10 > database_genotyping_log.txt 2>&1
 

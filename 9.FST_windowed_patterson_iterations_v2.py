@@ -1,8 +1,14 @@
 ## scikitallel_workflow
-# run this script using
+# You can run this script using
 # python scriptname.py /path/to/working/directory /path/to/callset.zarr chromosomename
+# However, it is designed to be run like a jupyter notebook so that you can see what is happening at each stage
+# So I recommend running each cell individually and insepcting the output
+# The following uses my melas vcf as an example, swap out for your vcf and adjust other parameters eg. chromosome names as needed.
+
+# %% Making the zarr file
+
 # You make the zarr file with allel.vcf_to_zarr('phased_vcf_file_name.vcf.gz', 'output_name.zarr', fields='*', overwrite=True)
-# allel.vcf_to_zarr('2019_melas_phased.vcf.gz', '2019_melas_phased.zarr', fields='*', overwrite=True)
+allel.vcf_to_zarr('2019_melas_phased.vcf.gz', '2019_melas_phased.zarr', fields='*', overwrite=True)
 
 ######################## CALCULATING FST #########################
 # %% adapted jupyter notebook from http://alimanfoo.github.io/2015/09/21/estimating-fst.html

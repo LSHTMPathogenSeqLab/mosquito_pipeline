@@ -1,3 +1,5 @@
+## This script uses the ratio of coverage between the X and 3R chromosomes in Anopheles to determine sex of the mosquito
+
 import subprocess
 import pandas as pd
 

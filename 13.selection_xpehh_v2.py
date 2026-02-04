@@ -1,5 +1,10 @@
 # ########### Cross-population extended haplotype homozygosity (XPEHH) ###########
 
+# This script is designed to be run like a jupyter notebook so that you can see what is happening at each stage
+# So I recommend running each cell individually and insepcting the output
+# The following uses an example vcf and zarr file as an example, swap out for your vcf and adjust other parameters eg. chromosome names as needed.
+
+
 ## Compute the unstandardized cross-population extended haplotype homozygosity score (XPEHH) for each variant.
 ## allel.xpehh(h1, h2, pos, map_pos=None, min_ehh=0.05, include_edges=False, gap_scale=20000, max_gap=200000, is_accessible=None, use_threads=True)
 # create h1 and h2, selecting all variants instead of segregating variants only, which is what we did in iHS
