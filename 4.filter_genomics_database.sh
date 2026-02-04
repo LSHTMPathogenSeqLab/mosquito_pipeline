@@ -1,4 +1,5 @@
 # FILTERING OF COMBINED GENOTYPED VCF
+
 # Below are a set of suggested hard and soft filters to filter your genomics database so that only high quality variants remain.
 # I'd advise that you do this step by step and view your vcf as you go with 'zless' or 'less' and inspect your database
 # The following uses the examples of my VCF database 2019_merged_melas.vcf.gz
@@ -18,7 +19,7 @@ bcftools view -M2 -m2 -v snps 2019_merged_melas.vcf.gz -Oz -o bi_snps_2019_merge
 # tabix index the compressed VCF file, creates .vcf.gz.tbi
 tabix -p vcf bi_snps_2019_merged_melas.vcf.gz
 
-### Note that to retain biallelic SNPs and split these into multiallelic sites, you need to decompose:
+### Note that to retain multiallelic SNPs and split these into biallelic sites, you need to decompose like so:
 
 bcftools norm -m -any input.vcf.gz -Oz -o output.vcf.gz
 

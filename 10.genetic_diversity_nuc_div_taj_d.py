@@ -1,3 +1,8 @@
+# This script is designed to be run like a jupyter notebook so that you can see what is happening at each stage
+# So I recommend running each cell individually and insepcting the output
+# The following uses my melas vcf and zarr file as an example, swap out for your vcf and adjust other parameters eg. chromosome names as needed.
+
+
 # %%
 import os
 os.chdir('/mnt/storage11/sophie/bijagos_mosq_wgs/2019_melas_fq2vcf_gambiae_aligned/genomics_database_melas2019plusglobal/genomics_database_melas2019plusglobal_vcf/melas_2019_plusglobal_filtering')

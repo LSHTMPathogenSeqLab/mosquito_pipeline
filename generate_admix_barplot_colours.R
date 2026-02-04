@@ -69,7 +69,18 @@ label_region <- opt$label_region
 label_site <- opt$label_site
 met_cols <- c(label_id, label_region, label_country, label_site)
 
-pals <- c("#3d348b", "#7678ed", "#f18701", "#f7b801","#f35b04")
+pals <- c(
+  "#3d348b",  # deep indigo
+  "#7678ed",  # soft periwinkle
+  "#4ea8de",  # sky blue
+  "#277da1",  # teal blue
+  "#43aa8b",  # green-teal
+  "#90be6d",  # soft green
+  "#f18701",  # orange
+  "#f7b801",  # yellow
+  "#f35b04",  # red-orange
+  "#9d4edd"   # muted purple
+)
 
 ## ggplot fun to plot admix-like plots
 plot_gg_admix <- function(df, label_id, label_cat, type, palette, l_angle) {

@@ -57,9 +57,9 @@ plink --bfile guinea_coluzzii_pbo_exposed \
 
 # STEP 4 RUN ADMIXTURE
 # Make a file called K_runs.txt with values 1 to 10 and then run the following command
-# Run this in screen as it takes a while
+# Run this in screen as it takes a while (fastq2matrix conda environment)
 
-cat K_runs.txt | xargs -I {} sh -c 'admixture --cv=10 -j20 -s 14062 guinea_coluzzii_pbo_exposed_qc.bed {} | tee log{}.cv10.seed82763.out'
+cat K_runs.txt | xargs -I {} sh -c 'admixture --cv=10 -j20 -s 74926 ghana_gambiae_2025_admixture_pruned.bed {} | tee log{}.cv10.seed74926.out'
 
 # Inspect the CV values for the inflection point to check what the best K value is for your dataset
 # Inspect using grep -h CV *out
@@ -71,13 +71,13 @@ conda create -n radmix r-essentials r-base
 install.packages(c("unikn", "countrycode", "optparse"))
 setwd("/mnt/storage11/sophie/admixture")
 
-Rscript generate_admix_barplot_colours.R \
--d /mnt/storage11/sophie/admixture \
---prefix melas_global_gambiaealigned \
+Rscript /mnt/storage11/sophie/gitrepos/mosquito_pipeline/generate_admix_barplot_colours.R \
+-d /mnt/storage11/sophie/Anisa/wgs_project/admixture \
+--prefix ghana_gambiae_2025_admixture_pruned \
 --kval 4 \
--m metadata_melasplusglobal_admixture.tsv \
+-m metadata.tsv \
 --filter_N 1 \
---label_id sample \
+--label_id sampleID \
 --label_region region \
 --label_country country \
 --label_site site \
